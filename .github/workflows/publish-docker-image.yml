@@ -1,0 +1,28 @@
+name: publish docker iamge
+on:
+  workflow_dispatch: #github页面手动触发
+env:
+  REGISTRY: docker.io
+  
+jobs:
+  build:
+    runs-on: ubuntu-lastet
+    steps: 
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Log into registry ${{ env.REGISTRY }}
+        uses: docker/login-action@v1
+        with: 
+          registry: ${{ env.REGISTRY }}
+          username: ${{ secrets.DOCKER_HUB_USER }}
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+          
+      # https://github.com/docker/build-push-action
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          tags: 1.0.0
+          
+
+  
