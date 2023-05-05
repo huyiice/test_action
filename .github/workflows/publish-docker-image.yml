@@ -47,4 +47,4 @@ jobs:
           context: .
           push: true
           #tags: registry.cn-shenzhen.aliyuncs.com/xxxx/image-name:v1
-          tags: android_build:v1
+          tags: huyiice/android_build:v1
