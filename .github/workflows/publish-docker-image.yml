@@ -1,13 +1,14 @@
-name: publish docker iamge
+name: 构建docker镜像并推送到仓库
 on:
-  workflow_dispatch: #github页面手动触发
-env:
+  workflow_dispatch:
+
+env: 
   REGISTRY: docker.io
   
-jobs:
-  build:
+jobs: 
+  build: 
     runs-on: ubuntu-lastet
-    steps: 
+    steps:  
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Log into registry ${{ env.REGISTRY }}
@@ -20,7 +21,7 @@ jobs:
       # https://github.com/docker/build-push-action
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
-        with:
+        with: 
           context: .
           tags: 1.0.0
           
