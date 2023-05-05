@@ -25,5 +25,5 @@ jobs:
           cd openwrt-armvirt
           wget https://mirrors.aliyun.com/openwrt/releases/22.03.0/targets/armvirt/64/openwrt-22.03.0-armvirt-64-default-rootfs.tar.gz
           cd ~/amlogic-s9xxx-openwrt
-          ./make -b s905l3 -k 6.1.10
+          sudo ./make -b s905l3 -k 6.1.10
           echo 编译固件结束
